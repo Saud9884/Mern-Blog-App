@@ -82,7 +82,7 @@ const updateBlog = async (req, res) => {
     console.log(error);
 
     return res
-      .send(500)
+      .status(500)
       .json({
         message: "Something went wrong while updating! Please try again",
       });
@@ -92,7 +92,7 @@ const updateBlog = async (req, res) => {
     return res.status(404).json({ message: "Unable to Update" });
   }
 
-  return res.send(200).json(currentBlogToUpdate);
+  return res.status(200).json(currentBlogToUpdate);
 };
 
 module.exports = { fetchListOfBlogs, addNewBlog, deleteBlog, updateBlog };
